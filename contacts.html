@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt & Öffnungszeiten | Café Sonntag Dortmund</title>
+    <meta name="description" content="Besuchen Sie das Café Sonntag in der Essener Str. 29, 44137 Dortmund-Mitte. Öffnungszeiten, Telefon und telefonische Tischreservierung.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2C2A29;
+            --accent: #D48C51;
+            --bg: #FCFBFA;
+            --card-bg: #FFFFFF;
+            --text: #333333;
+            --text-light: #666666;
+            --border: #E8E5E0;
+            --transition: all 0.3s ease;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; }
+        h1, h2, h3, h4, .logo { font-family: 'Playfair Display', serif; color: var(--primary); }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .header { background: var(--bg); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+        .nav-container { display: flex; align-items: center; justify-content: space-between; height: 80px; }
+        .logo { font-size: 1.5rem; font-weight: 700; }
+        .logo span { color: var(--accent); }
+        .nav-menu { display: flex; gap: 2rem; }
+        .nav-menu a { font-size: 0.95rem; font-weight: 500; color: var(--text-light); }
+        .nav-menu a:hover, .nav-menu a.active { color: var(--primary); }
+        .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
+        .mobile-menu-btn span { display: block; width: 25px; height: 2px; background: var(--primary); }
+        .btn { display: inline-block; padding: 0.75rem 1.75rem; border-radius: 4px; font-weight: 600; font-size: 0.95rem; cursor: pointer; border: 1px solid transparent; transition: var(--transition); }
+        .btn-sm { padding: 0.5rem 1.2rem; font-size: 0.85rem; border-color: var(--primary); color: var(--primary); }
+        .btn-sm:hover { background: var(--primary); color: #fff; }
+        .btn-primary { background: var(--primary); color: #fff; }
+        .btn-primary:hover { background: var(--accent); border-color: var(--accent); }
+        .btn-block { width: 100%; text-align: center; }
+        .page-header { padding: 4rem 0 2rem; text-align: center; background: #F4EFEA; }
+        .page-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .page-header p { color: var(--text-light); }
+        .section { padding: 5rem 0; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+        .contact-info h2, .contact-form-wrapper h2 { font-size: 1.8rem; margin-bottom: 1.5rem; }
+        .contact-info p { color: var(--text-light); margin-bottom: 1.2rem; }
+        .contact-info a { color: var(--accent); font-weight: 600; }
+        .hours-list { list-style: none; margin-top: 1rem; }
+        .hours-list li { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border); color: var(--text-light); font-size: 0.95rem; }
+        .contact-form { background: var(--card-bg); border: 1px solid var(--border); padding: 2.5rem; border-radius: 8px; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .form-group input, .form-group textarea { width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: 4px; font-family: inherit; font-size: 0.95rem; background: var(--bg); }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent); }
+        .footer { background: var(--primary); color: #fff; padding: 4rem 0 2rem; margin-top: 5rem; }
+        .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-bottom: 3rem; }
+        .footer h3, .footer h4 { color: #fff; margin-bottom: 1rem; }
+        .footer p, .footer a { color: #aaa; font-size: 0.95rem; margin-bottom: 0.5rem; display: block; }
+        .footer a:hover { color: #fff; }
+        .copyright { border-top: 1px solid rgba(255,255,250,0.1); padding-top: 1.5rem; color: #777; font-size: 0.85rem; text-align: center; }
+        @media (max-width: 900px) {
+            .contact-grid, .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .nav-menu { display: none; }
+            .mobile-menu-btn { display: flex; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Café Sonntag<span>.</span></a>
+            <nav class="nav-menu">
+                <a href="index.html">Startseite</a>
+                <a href="about.html">Über uns</a>
+                <a href="services.html">Speisekarte</a>
+                <a href="contacts.html" class="active">Kontakt</a>
+            </nav>
+            <a href="contacts.html" class="btn btn-sm">Tisch anfragen</a>
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Kontakt & Standort</h1>
+                <p>Wir freuen uns auf Ihren Besuch im Dortmunder Kreuzviertel.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container contact-grid">
+                <div class="contact-info">
+                    <h2>Besuchen Sie uns</h2>
+                    <p><strong>Adresse:</strong><br>Essener Str. 29, 44137 Dortmund-Mitte, Germany</p>
+                    <p><strong>Telefon:</strong><br><a href="tel:+4923113764306">+49 231 13764306</a></p>
+                    <p><strong>Hinweis:</strong><br>Reservierungen sind derzeit vorzugsweise telefonisch möglich.</p>
+                    <p><strong>Instagram:</strong><br><a href="https://www.instagram.com/sonntag.dortmund/" target="_blank">@sonntag.dortmund</a></p>
+                    
+                    <h3 style="margin-top: 2rem;">Öffnungszeiten</h3>
+                    <ul class="hours-list">
+                        <li><span>Montag:</span> <span>Ruhetag</span></li>
+                        <li><span>Dienstag:</span> <span>Ruhetag</span></li>
+                        <li><span>Mittwoch:</span> <span>Ruhetag</span></li>
+                        <li><span>Donnerstag:</span> <span>10:00 – 17:00</span></li>
+                        <li><span>Freitag:</span> <span>10:00 – 17:00</span></li>
+                        <li><span>Samstag:</span> <span>10:00 – 17:00</span></li>
+                        <li><span>Sonntag & Feiertage:</span> <span>10:00 – 17:00</span></li>
+                    </ul>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <h2>Schreiben Sie uns</h2>
+                    <p>Haben Sie Fragen oder Anliegen? Nutzen Sie unser Kontaktformular.</p>
+                    <form id="leadForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Ihr Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Max Mustermann">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefonnummer</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="+49 ...">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Ihre Nachricht</label>
+                            <textarea id="message" name="message" rows="4" required placeholder="Worum geht es?"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Nachricht senden</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div>
+                <h3>Café Sonntag</h3>
+                <p>Essener Str. 29<br>44137 Dortmund-Mitte</p>
+                <p>Telefon: <a href="tel:+4923113764306">+49 231 13764306</a></p>
+            </div>
+            <div>
+                <h4>Öffnungszeiten</h4>
+                <p>Donnerstag – Sonntag & Feiertage: 10:00 – 17:00<br>
+                Montag – Mittwoch: Ruhetag</p>
+            </div>
+            <div>
+                <h4>Social Media</h4>
+                <p><a href="https://www.instagram.com/sonntag.dortmund/" target="_blank">Instagram @sonntag.dortmund</a></p>
+            </div>
+        </div>
+        <div class="container copyright">
+            <p>&copy; 2026 Café Sonntag Dortmund. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-menu');
+            if (mobileBtn && navMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+                    if (navMenu.style.display === 'flex') {
+                        navMenu.style.flexDirection = 'column';
+                        navMenu.style.position = 'absolute';
+                        navMenu.style.top = '80px';
+                        navMenu.style.left = '0';
+                        navMenu.style.width = '100%';
+                        navMenu.style.background = 'var(--bg)';
+                        navMenu.style.padding = '1.5rem 2rem';
+                        navMenu.style.borderBottom = '1px solid var(--border)';
+                    }
+                });
+            }
+
+            const leadForm = document.getElementById('leadForm');
+            if (leadForm) {
+                leadForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    alert('Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet. Wir melden uns in Kürze.');
+                    leadForm.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
